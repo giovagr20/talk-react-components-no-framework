@@ -1,4 +1,4 @@
-import { Contact } from "../ContactPage";
+import { Contact } from "../../components/Contact";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import parrotdance from "../../assets/img/parrot-party.gif";

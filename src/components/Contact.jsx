@@ -3,20 +3,19 @@ import Swal from "sweetalert2";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { URL } from "../components/ContactAPI";
+import getUserById from "../utils/ContactAPI";
 
 export const Contact = ({ active, language }) => {
   const [activity, setActivity] = useState(active);
   const [userData, setUserData] = useState();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(URL.uri)
-      .then((response) => response.json())
-      .then((user) => {
-        setLoading(false);
+      getUserById(2).then(response => response.json())
+      .then(user => {
         setUserData(user);
+        setLoading(false)
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.error(error));
   }, []);
 
   const contactMeSpanish = (press) => {
