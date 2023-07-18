@@ -10,12 +10,13 @@ export const Contact = ({ active, language }) => {
   const [userData, setUserData] = useState();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-      getUserById(2).then(response => response.json())
-      .then(user => {
+    getUserById(2)
+      .then((response) => response.json())
+      .then((user) => {
         setUserData(user);
-        setLoading(false)
+        setLoading(false);
       })
-      .catch(error => console.error(error));
+      .catch((error) => console.error(error));
   }, []);
 
   const contactMeSpanish = (press) => {
